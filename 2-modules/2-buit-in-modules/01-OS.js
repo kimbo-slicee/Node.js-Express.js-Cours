@@ -2,6 +2,7 @@
 const os =require('os');
 // info About The current user 👨‍💻
 const userInfo =os.userInfo();
+console.log(`get the userInfo using methode userInfo ${userInfo}`)
 currentTime=()=>{
     console.log(` the current Time ⏲ in seconds ${os.uptime()/3600}H`);
 }
@@ -14,4 +15,4 @@ const currentOS={
     freeMemo:os.freemem()
 
 }
-module.exports.localos=currentOS;
+console.log('info about the current os'+currentOS);

@@ -13,6 +13,7 @@ const userInfo=require("./2-modules/2-buit-in-modules/01-OS")
 /*Path Module */
 const pathModule=require('./2-modules/2-buit-in-modules/03-PATH')
 /*Fs Module */
-require('./2-modules/2-buit-in-modules/02-FS');
+
+
 
 

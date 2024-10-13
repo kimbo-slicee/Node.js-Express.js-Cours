@@ -8,12 +8,11 @@ for (let key in userdata['user']) {
     console.log(userdata["user"][key])
 }
 /*Built in Models*/
-const osInfo=require('./2-modules/2-buit-in-modules/01-OS');
-const userInfo=require("./2-modules/2-buit-in-modules/01-OS")
+const osInfo=require('./2-modules/2-built-in-modules/01-OS');
+const userInfo=require("./2-modules/2-built-in-modules/01-OS")
 /*Path Module */
-const pathModule=require('./2-modules/2-buit-in-modules/03-PATH')
+const pathModule=require('./2-modules/2-built-in-modules/03-PATH')
 /*Fs Module */
-
 
 
 

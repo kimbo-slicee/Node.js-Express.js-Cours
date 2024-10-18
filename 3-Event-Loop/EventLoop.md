@@ -1,4 +1,4 @@
-![Event Loop !](../images/event-loop-image.png)
+![Event Loop ](../images/event-loop.gif)
 ### The Node.js Event Loop 💱
 The Event Loop is a core 💫 concept in Node.js that allows it to handle asynchronous 🔀 operations. Node.js is 
 single-threaded, which means it executes one task at a time. However, with the event loop, it can handle many I/O-bound operations (like reading files, querying databases, and making HTTP requests) asynchronously without blocking the main thread. This is what makes Node.js highly efficient for building scalable and non-blocking applications.
@@ -11,7 +11,6 @@ Node.js uses an event-driven, non-blocking I/O model that allows it to perform m
 - **Event Loop: 💱** The mechanism that continuously checks the call stack and event queue, managing the execution of 
   functions. 
 ### 2. How the Event Loop Works 🤔
-![How the event Loop Works ](../images/event-loop.gif)
 The event loop has a single main thread that repeatedly performs the following steps:
 1. Look 🧐 at the Call Stack 🗄:
 The event loop checks if the call stack is empty or not.

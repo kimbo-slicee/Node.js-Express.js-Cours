@@ -17,4 +17,3 @@ const _=require('loadash');
 let items=[1,[2,[3,[4,[5,[6]]]]]];
 const newTimes=_.flatMap(items);
 console.log(newTimes);
-

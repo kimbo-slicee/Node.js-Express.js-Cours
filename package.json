@@ -4,7 +4,7 @@
   "description": "node.js and Express.js repo",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon app.js"
+    "start": "nodemon 03-async-await.js"
   },
   "keywords": [],
   "author": "",

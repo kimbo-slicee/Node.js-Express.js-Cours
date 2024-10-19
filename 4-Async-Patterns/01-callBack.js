@@ -11,8 +11,5 @@ const getText=(path)=>{
         console.log(data);
         });
 }
-/** Async and Await pattern
- * */
-const readeFiel=async ()=>{
-     await getText(path);
-}
+getText(path);
+setImmediate(()=>console.log("Hello World !"))

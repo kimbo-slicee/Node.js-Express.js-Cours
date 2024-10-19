@@ -1,4 +1,5 @@
 const {readFile}=require('fs');
+const util=require('util');
 const path='../content/async.txt'
 const getFile=(path)=>{
 return new Promise((resolve, reject)=>{
@@ -8,5 +9,17 @@ return new Promise((resolve, reject)=>{
     })
 })
 };
-getFile(path).then(result=>console.log(result)).catch(err=>console.log(err))
+getFile(path).then(result=>console.log(result)).catch(err=>console.log(err));
+const readFilePromise=util.promisify(readFile)
+const start=async ()=>{
+    try{
+       console.log(await readFilePromise(path))
+    }catch (err){
+        console.log(err)
+    }
+}
+start();
+
+
+
 

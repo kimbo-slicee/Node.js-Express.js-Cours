@@ -2,6 +2,23 @@
 
 ![Static Badge](https://img.shields.io/badge/course-js?style=plastic&logo=nodedotjs&logoColor=%23145a32&logoSize=18px&label=node.js&labelColor=%230000&color=%23145a32&cacheSeconds=https%3A%2F%2Fnodejs.org)
 ![Static Badge](https://img.shields.io/badge/%20%20%F0%9F%93%9ACourse-js?style=plastic&logo=express&logoColor=%23ffff&logoSize=18px&label=Express.js&labelColor=%230000&color=%230000&cacheSeconds=https%3A%2F%2Fnodejs.org)
+# Course Structure 
+
+./node.js/*
+├─ intro - # Minified images, fonts, icon files
+│    ├─ _global-Variables.js
+│    ├─intro.md 
+├─ src/components - # Individual smaller components
+├─ src/fragments - # Larger chunks of a page composed of multiple components
+├─ src/layouts - # Page layouts used for different types of pages composed of components and fragments
+├─ src/page - # Custom pages or pages composed of layouts with hardcoded data components, fragments, & layouts
+├─ src/pages/* - # Next.js file based routing
+│  ├─ _app.js - # next.js app entry point
+│  ├─ _document.js - # next.js document wrapper
+│  ├─ global.css - #  Global CSS styles
+│  └─ Everything else... - # File based routing
+└─ src/utils - # Utility functions used in various places
+
 ### What is Node.js and why it's used for🤔
 Node.js is a runtime environment that allows you to run JavaScript code on the server side. It’s built on Chrome’s V8 JavaScript engine, enabling fast, scalable, and event-driven programming, ideal for building web servers, APIs, and real-time applications. Node.js allows you to use JavaScript beyond just the browser, making it a great choice for full-stack development.
 ### What is Express.js Framework 🖼

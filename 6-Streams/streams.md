@@ -28,3 +28,5 @@ Streams can be piped together, which means you can pass data from one stream dir
 Streams are ideal for applications dealing with large files (e.g., video streaming, audio processing, logs) because they don’t load the entire dataset into memory at once, improving efficiency.
 >[!IMPORTANT]
 > Almost all Node.js applications, no matter how simple, use streams in some manner. 
+> Both Writable and Readable streams use the EventEmitter API in various ways to communicate the current state of the stream.
+

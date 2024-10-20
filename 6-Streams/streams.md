@@ -1,4 +1,5 @@
-# 1 What Are Streams in Node.js ❓
+![streams in node.js](../images/streams.png)
+# 1 What Are Streams in Node.js 
 Streams are a fundamental concept in Node.js, used to handle asynchronous data flow. They allow you to process 
 data in chunks 🧩 rather than all at once, making it efficient for handling large data sets (e.g., files, network 
 requests) without using a lot of memory.
@@ -13,7 +14,7 @@ Example: fs.createWriteStream() writes data to a file.
 Example: A TCP socket connection.
 **Transform Streams:** These streams allow you to modify or transform data while it's being read or written.
 Example: zlib.createGzip() compresses the data as it's streamed.
-# 3 Why Node.js Uses Streams ❓
+# 3 Why Node.js Uses Streams 
 **Streams are widely used in Node.js for the following reasons:**
 1. Efficient Memory Usage 🚀:
 Instead of loading 💱 an entire file 🗂 or response into memory, Node.js streams read or write data in chunks. This 
@@ -25,3 +26,5 @@ Node.js uses streams to handle I/O-bound tasks [e.g., reading/writing files, HTT
 Streams can be piped together, which means you can pass data from one stream directly to another. For example, reading a file stream and piping it to a network response, making the data flow from the file to the user efficiently.
 4. Handling Large Datasets 📊:
 Streams are ideal for applications dealing with large files (e.g., video streaming, audio processing, logs) because they don’t load the entire dataset into memory at once, improving efficiency.
+>[!IMPORTANT]
+> Almost all Node.js applications, no matter how simple, use streams in some manner. 

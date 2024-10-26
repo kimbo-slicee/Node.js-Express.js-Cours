@@ -22,4 +22,4 @@ for (let i = 0; i < 100; i++) {
 WritableStream.on('finish', () => {
     console.log('All writes are now complete.');
 });
-WritableStream.end('This is the end\n');
+WritableStream .end('This is the end\n');

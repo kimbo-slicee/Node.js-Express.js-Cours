@@ -1,31 +1,20 @@
-import express, { application } from 'express';
-const app =express;
-/**
- * Http methodes with Express js 
- * */ 
-// // get All Data
-// app.get("/",(req,res)=>{
-// res.send("Hello World !")
-// })
-// //get only one elment
-// app.get("/about",()=>{
-//     console.log("about page")
-//     res.status(200).send("About Page")
-// })
-//
-// // all it's for all the requests
-// app.all('*',(req,res)=>{
-// res.status(400).send("page note found")
-// })
-// app.listen(5000,()=>{
-//     console.log("server is listening")
-// })
+const express = require('express');
+const path =require('path')
+const url = require("url");
+const app=express();
+app.use(express.static('./navbar'))
 app.listen(5000,()=>{
-    console.log("Server listening in port 500")
+    console.log(`Server listening in port 5000`)
 })
-app.get("/",(req,res)=>{
-    res.status(200).send("server listening in port  ")
+app.get('/',(req, res)=>{
+    res.status(200).send("data sent")
 })
-app.all("*",(req,res)=>{
-    res.status(400).send("resources not found ")
+/*index.html we call allot of files and the brows don't knon MIME of this content-type so shuld set the conoetnt
+ type in the Express it's so essay then node js  */
+app.get("/home",(req,res)=>{
+    const filePath=path.resolve(__dirname,'./navbar/index.html')
+    res.sendFile(filePath)
+})
+app.all('*',(req, res)=>{
+    res.status(400).send('<h1>Resources note found !</h1>')
 })

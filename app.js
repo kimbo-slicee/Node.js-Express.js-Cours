@@ -7,5 +7,4 @@ logUser(userNameEndEmail);
 for (let key in userdata['user']) {
     console.log(userdata["user"][key])
 }
-/*Built in Models*/
 

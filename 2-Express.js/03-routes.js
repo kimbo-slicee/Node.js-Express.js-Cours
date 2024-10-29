@@ -19,6 +19,23 @@ app.get("/api/products",(req, res)=>{
     res.json(product);
 
 })
+/*show one product using express routing */
+app.get("/api/products/:id",(req, res)=>{
+    const id=req.params.id;
+    const product=products.find((product)=>product.id===+id)
+    if(product){
+        res.json(product)
+    }else {
+        res.status(400);
+        res.send(`<h1>Error!</h1>`)
+    }
+})
+/**
+ * Routes Can be more complicated so let's go deep
+ * */
+app.get("/api/products/:id/views/:viewsId",(req, res)=>{
+//
+})
 app.listen(1000,()=>{
     console.log("server working on port 1000")
 })

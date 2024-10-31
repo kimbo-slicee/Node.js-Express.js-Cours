@@ -23,11 +23,11 @@ Useful for GET Requests: Ideal for requests that don't alter server state, like 
 Supports Bookmarking: URLs with query strings can be bookmarked for quick access.
 # What is Middleware 🤔
 Middleware is software that sits between the client and the server, acting as a bridge to manage, modify, or facilitate the processing of requests and responses. In web development, middleware is typically a function or series of functions that intercepts requests in an application's request-response cycle. It can perform a range of tasks like logging, authentication, data parsing, error handling, and more.
-### Key Functions of Middleware
+### 🗝 Key Functions of Middleware
 **Logging and Monitoring:** Middleware can log details about each request, such as the endpoint accessed, user 
 information, request time, etc. This is useful for tracking usage, errors, and performance.
 
-**Authentication and Authorization:**.
+**👮‍♂️ Authentication and Authorization:**.
 Middleware often handles checking if a user is authenticated (logged in) and 
 authorized to access certain resources.
 

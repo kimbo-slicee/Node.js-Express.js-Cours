@@ -1,5 +1,3 @@
-const express=require('express');
-const app=express();
 const logger=(req,res,next)=>{
 const methode =req.method;
 const url=req.url;
@@ -22,3 +20,14 @@ app.get('/',logger,(req, res)=>{
  * but the best practice it's that using a separate files for middleware bsc in one project we can have bunch of
  * middlewares
  * */
+
+const auth=(req,res,next)=>{
+    const{user}=req.query;
+    if(user==="userName"){
+        req.user={name:"name",id:3}
+        next()
+    }
+    console.log("authorize user");
+    next();
+}
+

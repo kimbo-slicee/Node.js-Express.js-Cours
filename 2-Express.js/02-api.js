@@ -1,7 +1,10 @@
 const express=require('express');
 const app=express();
+const {people}=require("./../data");
+app.use(express.static("./../public"))
+
 app.get('/',(req, res)=>{
-    res.send(`<p><a href="/api/apollo">APPOLO</a></p>`)
+    res.send(`<p><a href="/api/apollo">APOLLO</a></p>`)
 
     // it's realy easy to send any type of data withe Express.js
 
@@ -13,6 +16,13 @@ app.get('/api/apollo',(req, res)=>{
         direction:'Moon 🌚'
     }])
 })
-app.listen(1969,()=>{
-    console.log("I'M here in port 1969")
+/*--------------------------------------------People 👨‍👨‍👦‍👦 API---------------------------------------------*/
+app.get("/api/v1",(req, res)=>{
+    res.status(200).json({success:true,data:people})
+    console.log("login api")
+})
+app.listen(5000,()=>{
+    console.log(`Apollo listing 👂 in port 5000`)
     })
+
+

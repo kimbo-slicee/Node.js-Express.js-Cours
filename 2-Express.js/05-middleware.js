@@ -1,6 +1,7 @@
 const logger=(req,res,next)=>{
 const methode =req.method;
 const url=req.url;
+
 const date=new Date().getFullYear()
     console.log(methode,url,date)
     next()
@@ -18,7 +19,7 @@ app.get('/',logger,(req, res)=>{
 })
 /**
  * but the best practice it's that using a separate files for middleware bsc in one project we can have bunch of
- * middlewares
+ * middlewares are so crucial
  * */
 
 const auth=(req,res,next)=>{
@@ -26,8 +27,10 @@ const auth=(req,res,next)=>{
     if(user==="userName"){
         req.user={name:"name",id:3}
         next()
+    }else {
+        res.status(401).send("Unauthorized user ")
     }
     console.log("authorize user");
     next();
 }
-
+module.exports=[auth,logger]

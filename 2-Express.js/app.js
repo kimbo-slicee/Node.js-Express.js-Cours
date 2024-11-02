@@ -4,9 +4,14 @@ const express=require('express');
 const app =express()
 // i Can add this Middleware manually but what if a bunch of routes methods then I use methode in Express call use
 app.use('/api',[logger,authorize])
+// app.use('/api/auth',authorize)
 // /api/....
+app.use(express.static("./public"))
 app.get("/",(req, res)=>{
     res.send(`<h1>Home Page</h1>`)
+})
+app.post("/login",(req, res)=>{
+    
 })
 
 app.post("/api/v1/auth",logger,(req, res, next)=>{

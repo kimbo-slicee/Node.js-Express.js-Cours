@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submission Form with Dark Mode</title>
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: #f5f5f5;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        /* Navbar */
+        .navbar {
+            width: 100%;
+            background-color: #1e1e1e;
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+
+        .navbar .logo {
+            color: #3b82f6;
+            font-size: 24px;
+            font-weight: bold;
+            margin-right: auto;
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            gap: 15px;
+        }
+
+        .navbar ul li a {
+            color: #f5f5f5;
+            text-decoration: none;
+            padding: 8px 12px;
+            transition: color 0.3s ease;
+        }
+
+        .navbar ul li a:hover {
+            color: #3b82f6;
+        }
+
+        /* Form Container */
+        .form-container {
+            background-color: #1e1e1e;
+            padding: 40px;
+            border-radius: 8px;
+            width: 100%;
+            max-width: 400px;
+            margin-top: 80px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .form-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #3b82f6;
+        }
+
+        .form-container label {
+            font-size: 14px;
+            margin-bottom: 5px;
+            display: block;
+            color: #f5f5f5;
+        }
+
+        .form-container input[type="text"],
+        .form-container input[type="email"],
+        .form-container textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0 20px;
+            border-radius: 5px;
+            border: none;
+            background-color: #333;
+            color: #f5f5f5;
+        }
+
+        .form-container textarea {
+            resize: vertical;
+            height: 80px;
+        }
+
+        .form-container button {
+            width: 100%;
+            padding: 12px;
+            background-color: #3b82f6;
+            color: #f5f5f5;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .form-container button:hover {
+            background-color: #2563eb;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar">
+    <div class="logo">Node.js</div>
+    <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Services</a></li>
+    </ul>
+</nav>
+
+<!-- Submission Form -->
+<div class="form-container">
+    <h2>Contact Us</h2>
+    <form action="/login" method="post">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" required></textarea>
+
+        <button type="submit" class="btn">Submit</button>
+    </form>
+</div>
+<div>
+
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.7/axios.min.js" integrity="sha512-DdX/YwF5e41Ok+AI81HI8f5/5UsoxCVT9GKYZRIzpLxb8Twz4ZwPPX+jQMwMhNQ9b5+zDEefc+dcvQoPWGNZ3g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+const result=document.querySelector(".res");
+const fetchPeople=async ()=>{
+    try{
+        const {data}=await axios.get("api/apollo");
+        const people=data.data.map(per=>{
+            return`<h2>${per.name}</h2>`
+        })
+        result.innerHTML=people.join('')
+    }catch (error){
+        result.innerHTM=`<div>Can't Fetch data </div>`
+    }
+}
+fetchPeople();
+// submit Form
+const btn =document.querySelector(".btn");
+const name=document.getElementById("name");
+const email=document.getElementById("email")
+const message=document.getElementById("message");
+btn.addEventListener("click",async (e)=>{
+    e.preventDefault();
+    const userName =name.value;
+    const userEmail=email.value;
+    const msg=message.value;
+    const userData={userName,userEmail,msg};
+    try{
+    const {data}=await axios.post('/api/pepole',{data:"userDta"})
+    }catch (error){
+        formAlter=
+    }
+})
+</script>
+</body>
+</html>

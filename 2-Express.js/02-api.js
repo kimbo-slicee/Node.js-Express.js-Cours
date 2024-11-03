@@ -2,7 +2,7 @@ const express=require('express');
 const app=express();
 const {people}=require("./../data");
 app.use(express.static("./../public"))
-
+app.use(express.json());
 app.get('/',(req, res)=>{
     res.send(`<p><a href="/api/apollo">APOLLO</a></p>`)
 
@@ -17,10 +17,11 @@ app.get('/api/apollo',(req, res)=>{
     }])
 })
 /*--------------------------------------------People 👨‍👨‍👦‍👦 API---------------------------------------------*/
-app.get("/api/v1",(req, res)=>{
-    res.status(200).json({success:true,data:people})
-    console.log("login api")
+app.get("/api/v1/people",(req, res)=>{
+    res.status(200).json([{success:true,data:people}])
+
 })
+
 app.listen(5000,()=>{
     console.log(`Apollo listing 👂 in port 5000`)
     })

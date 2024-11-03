@@ -21,6 +21,15 @@ app.get("/api/v1/people",(req, res)=>{
     res.status(200).json([{success:true,data:people}])
 
 })
+app.post("/api/v1/people",(req,res)=>{
+    const {name}=req.body
+    if(!name){
+        res.status(400).json({success:false,msg:"message error"})
+    }else{
+        res.status(200).json({success:true,data:name})
+
+    }
+})
 
 app.listen(5000,()=>{
     console.log(`Apollo listing 👂 in port 5000`)

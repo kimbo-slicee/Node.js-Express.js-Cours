@@ -14,7 +14,7 @@
 <!-- Task Manager Form -->
 <div class="task-form">
     <label for="task-input">Add New User:</label>
-    <input type="text" id="task-input" placeholder="Enter your task here" >
+    <input type="text" id="task-input" placeholder="Enter your task here" class="userName">
     <button class="btn">Add Task</button>
 </div>
 <div class="user-list" >
@@ -25,16 +25,18 @@
 <ul class="task-list" id="task-list"></ul>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.7/axios.min.js" integrity="sha512-DdX/YwF5e41Ok+AI81HI8f5/5UsoxCVT9GKYZRIzpLxb8Twz4ZwPPX+jQMwMhNQ9b5+zDEefc+dcvQoPWGNZ3g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
+
     const userList=document.getElementById("userList");
     <!-- Fetch all user from node Back-end end using api/peoples  -->
    const fetchAllUsers=async ()=>{
    let users;
+
    await axios.get('/api/v1/people').then((res)=>{
        let dataList =res.data;
        if(dataList.length){
            dataList.map(ele=>{
                ele.data.forEach((ele)=>{
-                   let button=document.createElement("button")
+       let button=document.createElement("button")
                    button.textContent='delete';
                    let li =document.createElement('li');
                    li.textContent=ele.name;
@@ -48,6 +50,16 @@
 }
 fetchAllUsers()
 /* create function data can send request to backend and to add new user withe post methode**/
+    const btn =document.querySelector(".btn")
+    btn.addEventListener('click',(ele)=>{
+        adduser()
+    })
+const adduser=()=>{
+ let userName=  document.querySelector(".userName").value
+  if(userName){
+   const {data}=axios.post("/api/v1/people",{name:userName});
+    }
+}
 </script>
 
 </body>

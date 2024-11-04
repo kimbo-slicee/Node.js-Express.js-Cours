@@ -2,37 +2,28 @@ const express=require('express');
 const app=express();
 const {people}=require("./../data");
 app.use(express.static("./../public"))
-app.use(express.json());
-app.get('/',(req, res)=>{
-    res.send(`<p><a href="/api/apollo">APOLLO</a></p>`)
-
-    // it's realy easy to send any type of data withe Express.js
-
-})
-app.get('/api/apollo',(req, res)=>{
-    res.json([{
-        name:'APOLLO 🚀',
-        date:'July 16, 1969',
-        direction:'Moon 🌚'
-    }])
-})
-/*--------------------------------------------People 👨‍👨‍👦‍👦 API---------------------------------------------*/
-app.get("/api/v1/people",(req, res)=>{
-    res.status(200).json([{success:true,data:people}])
-
-})
-app.post("/api/v1/people",(req,res)=>{
-    const {name}=req.body
-    if(!name){
-        res.status(400).json({success:false,msg:"message error"})
-    }else{
-        res.status(200).json({success:true,data:name})
-
+// CRUD APIS
+// get All peoples
+app.get('/api/v1/users',(req, res)=>{
+    if(people.length>0){
+    res.status(200).json({data:people})
+    }else {
+    res.send(400).send({success:false,msg:"NO USER ARE FOUNDED"})
     }
+
 })
+//getOnePerson
+app.get('api/v1/user:id',(req, res)=>{
+    const {id}=req.params;
+})
+// Add user
+/** but let's discus about what happen when I send data from front-end to backend service data that was sent it's
+encoded data and i can access this data
 
+ */
+app.post('/api/v1/users',(req,res)=>{
+
+})
 app.listen(5000,()=>{
-    console.log(`Apollo listing 👂 in port 5000`)
-    })
-
-
+    console.log("server listing in port 5000");
+})

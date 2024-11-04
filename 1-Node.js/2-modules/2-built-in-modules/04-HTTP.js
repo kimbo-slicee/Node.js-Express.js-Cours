@@ -61,7 +61,7 @@ const server=http.createServer((req,res)=>{
     const url=req.url
     const homePage =readFileSync('./index.html');    
     const style=readFileSync('./styles.css')
-    const appjs=readFileSync('./app.js')
+    const appjs=readFileSync('./main.js')
     const logo=readFileSync('./logo.svg')
     if(url==='/'){
         res.writeHead(200,{'content-type':'text/html'});

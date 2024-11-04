@@ -42,3 +42,71 @@ redirecting the client to error-handling pages.
 **Cross-Origin Resource Sharing (CORS):** . 
 Middleware can enable CORS, allowing your application to define which domains 
 can access its resources.
+### Benefits of Middleware
+**Modularity:** Middleware breaks down functionality into manageable pieces, improving code readability and maintenance.
+**Reusability:** Common functionality (like authentication) can be reused across routes.
+**Scalability:** Middleware can be added or removed easily to adapt to application changes or new requirements.
+>[!NOTE]
+>Overall, middleware provides a clean way to add functionality to web applications without embedding it directly in 
+> route handlers.
+### Built-in Middleware in Express.js
+Express.js provides several built-in middleware functions that simplify common tasks in web applications, such as parsing request bodies, handling cookies, serving static files, and more. These middleware functions are provided out of the box, so you don’t need to write them from scratch.
+
+<details>
+<summary>1-express.json()</summary>
+
+- Parses incoming requests with JSON payloads.
+- Useful for handling POST and PUT requests where data is sent in JSON format.
+
+```javascript
+app.use(express.json());
+```
+</details>
+<details>
+<summary>2-express.urlencoded()</summary>
+
+- Parses incoming requests with URL-encoded payloads, typically from HTML form submissions 
+(application/x-www-form-urlencoded).
+- Accepts options like { extended: true } to allow nested objects in the URL-encoded data.
+```javascript
+app.use(express.urlencoded({ extended: true }));
+```
+</details>
+
+<details>
+<summary>3-express.static()</summary>
+
+- Serves static files (such as HTML, CSS, images, etc.) from a specified directory.
+- Useful for frontend assets and serving resources without custom server logic.
+```javascript
+app.use(express.static('public')); // Serves static files from the 'public' folder
+
+```
+</details>
+<details>
+<summary>4-express.raw()</summary>
+
+- Parses incoming requests with raw payloads, used for handling non-parsed binary or plain text data (e.g., 
+  application/octet-stream).
+
+```javascript
+app.use(express.raw());
+
+```
+</details>
+<details>
+<summary>5-express.text()</summary>
+
+- Parses incoming requests with plain text payloads (text/plain).
+- Useful for handling raw text data as strings.
+```javascript
+app.use(express.text());
+```
+</details>
+
+
+
+
+
+
+

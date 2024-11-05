@@ -39,14 +39,14 @@
             <tr class="text-center ">
                 <th scope="col" class="text-white bg-success">id</th>
                 <th scope="col" class="text-white bg-success">Name</th>
-                <th scope="col" class="text-white bg-success">Email</th>
             </tr>
             </thead>
-            <tbody>
-            </tbody>
+            <tbody></tbody>
         </table>
     </section>
+    <span class="error"></span>
 </div>
+
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.7/axios.min.js" integrity="sha512-DdX/YwF5e41Ok+AI81HI8f5/5UsoxCVT9GKYZRIzpLxb8Twz4ZwPPX+jQMwMhNQ9b5+zDEefc+dcvQoPWGNZ3g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
@@ -68,7 +68,6 @@
                  <tr>
                 <td>${ele.id}</td>
                 <td>${ele.name}</td>
-                <td>${ele.email}</td>
                 </tr>`
             })
         })
@@ -85,11 +84,25 @@
         let userName=searchInput.value;
         try{
             if(userName){
-                axios.post('api/v1/users',{name:userName}).then((res)=>{
-                    console.log(res);
+                axios.post('api/v1/users',{nameValue:userName}).then((res)=>{
+                   let  users=res.data['data'];
+                    tbody.className="text-center";
+                    users.map(ele=>{
+                        tbody.innerHTML=`
+                 <tr>
+                <td>${ele.id}</td>
+                <td>${ele.name}</td>
+                </tr>`
+                    })
+
                 })
             }
         }catch (error){
+            errorSection.innerHTML=`
+                <div class="alert bg-success d-flex align-items-center">
+                <div><i class="fa-solid fa-circle-exclamation mx-2"></i> ${error.response.data.msg}</div>
+                </div>
+            `
 
         }
 

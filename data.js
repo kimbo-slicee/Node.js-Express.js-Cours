@@ -33,10 +33,10 @@ const products = [
     },
 ]
 const people = [
-    { id: 1, name: 'john' , mail:"john@gmail.com"},
-    { id: 2, name: 'peter' , email:'peter@gmail.com'},
-    { id: 3, name: 'susan' , email:'susan@gmail.com'},
-    { id: 4, name: 'anna' , email:'anna@gmail.com'},
-    { id: 5, name: 'emma' , email:'emma@gmail.com'},
+    { id: 1, name: 'john'},
+    { id: 2, name: 'peter'},
+    { id: 3, name: 'susan'},
+    { id: 4, name: 'anna'},
+    { id: 5, name: 'emma'},
 ]
 module.exports = { products,people}

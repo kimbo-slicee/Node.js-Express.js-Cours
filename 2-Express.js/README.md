@@ -71,6 +71,8 @@ app.use(express.json());
 ```javascript
 app.use(express.urlencoded({ extended: true }));
 ```
+>[!NOTE]
+> This middleware is available in Express v4.16.0 onwards.
 </details>
 
 <details>

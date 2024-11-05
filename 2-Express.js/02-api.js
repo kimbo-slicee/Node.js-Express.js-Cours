@@ -1,8 +1,8 @@
 const express=require('express');
 const app=express();
-const {people}=require("./../data");
 const userRoutes = require('./Routers/06-Routers');
-app.use('/api/users',userRoutes);
+const {people} = require("../data");
+app.use('/api/v1/users',userRoutes);
 app.use(express.static("./../public"));
 app.use(express.urlencoded({extended:false}));
 app.use(express.json());
